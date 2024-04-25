@@ -21,7 +21,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: make fortune dat
-        run: python format.py
+        run: |
+          sudo apt install -y fortune-mod
+          python format.py
 
       - name: upload artifact to release
         uses: ncipollo/release-action@v1
