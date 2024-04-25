@@ -28,7 +28,7 @@ jobs:
         with:
           allowUpdates: True
           prerelease: False
-          tag: "coutinous"
+          tag: "continuous"
           omitBody: True
           omitBodyDuringUpdate: True
           omitNameDuringUpdate: True
