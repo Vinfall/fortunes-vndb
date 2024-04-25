@@ -1,0 +1,36 @@
+name: release
+
+on:
+  schedule:
+    - cron: "0 4 * * 0" # 4:00 UTC every Sunday
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: make fortune dat
+        run: python format.py
+
+      - name: upload artifact to release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          prerelease: False
+          tag: "coutinous"
+          omitBody: True
+          omitBodyDuringUpdate: True
+          omitNameDuringUpdate: True
+          artifacts: "output/vndb*"
+          token: ${{ secrets.GITHUB_TOKEN }}
