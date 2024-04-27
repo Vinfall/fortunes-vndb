@@ -45,20 +45,7 @@ SELECT vid, cid, quote
 FROM vndb.quotes;
 ```
 
-Or query VN titles, character names and format the output altogether:
-
-```sql
-SELECT
-  q.quote,
-  CASE
-    WHEN c.name IS NULL THEN CONCAT (v.title, ' (https://vndb.org/' || q.vid || ')')
-    ELSE CONCAT (c.name, ', ', v.title, ' (https://vndb.org/' || q.vid || ')')
-  END AS source
-FROM
-  quotes q
-  JOIN vn v ON q.vid = v.id
-  LEFT JOIN chars c ON q.cid = c.id
-```
+Or query VN titles, character names and format the output altogether, check [`query.sql`](query.sql).
 
 If you want to create a custom VNDB fortune quote, you can either edit coded SQL query in [`format.py`](format.py) on VNDB Query,
 or alternatively, run the script locally, edit the JSON, and make a fortune dat yourself.
