@@ -18,15 +18,17 @@ fortunes | cowsay
 
 ## Usage
 
-0. Note that it may contain NSFW content or **spoilers** so use it at your own risk
+> [!TIP]
+> It may contain NSFW content or **spoilers** so use it at your own risk!
+
 1. Install `fortune-mod` or `fortunes` from your package manager
 2. Copy `vndb` AND `vndb.dat` to `/usr/share/fortunes` (or `/usr/share/games/fortunes`)
-3. You can now have VNDB quote via `fortune vndb`
+3. Get random VNDB quote via `fortune vndb`
 
 Example commands:
 
 ```sh
-$ sudo cp ./vndb* /usr/share/fortunes/
+$ sudo install -pm644 ./vndb* /usr/share/fortunes/
 
 $ fortune vndb
 I spent all of last year's Shiomi Festival participating in a self-sponsored Reading Festival at my apartment, actually.
