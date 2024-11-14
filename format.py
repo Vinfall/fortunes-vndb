@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
+#!/bin/micropython
 # -*- coding: utf-8 -*-
 
-from urllib.request import urlopen
+from urllib.urequest import urlopen
 import json
 import os
 
@@ -14,7 +14,6 @@ _FORTUNE_FILE = "vndb"
 response = urlopen("https://query.vndb.org/5c9a6037d875c238.json")
 fortunes = json.loads(response.read())
 
-os.makedirs(_OUTPUT_FOLDER, exist_ok=True)
 with open(_OUTPUT_FOLDER + _JSON_FILE, "w", encoding="utf-8") as f:
     json.dump(fortunes, f)
 
