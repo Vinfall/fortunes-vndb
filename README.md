@@ -28,7 +28,7 @@ fortunes | cowsay
 Example commands:
 
 ```sh
-$ sudo install -pm644 ./vndb* /usr/share/fortunes/
+$ sudo install -pm644 ./output/vndb* /usr/share/fortunes/
 
 $ fortune vndb
 I spent all of last year's Shiomi Festival participating in a self-sponsored Reading Festival at my apartment, actually.
