@@ -1,12 +1,11 @@
 # Varables
-PYTHON = python
-PIP = pip
+LUA = lua
 SUDO = sudo
 
 # Dependencies & scripts
 
 run: ## get vndb quotes
-	$(PIP) format.py
+	$(LUA) format.lua
 
 clean: ## clean up outputs
 	-rm output/vndb*

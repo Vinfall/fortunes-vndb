@@ -2,6 +2,8 @@
 
 Fortune file of VNDB quotes. Automatically updated through GitHub Action.
 
+Rewritten in Lua, only tested on Lua5.4.
+
 ## Why
 
 Quoted from Yorhel via [t1052.3](https://vndb.org/t1052.3):
