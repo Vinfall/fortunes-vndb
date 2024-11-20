@@ -2,11 +2,15 @@
 PYTHON = python
 PIP = pip
 SUDO = sudo
+LUA = lua
 
 # Dependencies & scripts
 
 run: ## get vndb quotes
 	$(PIP) format.py
+
+run-lua: ## get vndb quotes
+	$(LUA) format.lua
 
 clean: ## clean up outputs
 	-rm output/vndb*
