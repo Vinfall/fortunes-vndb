@@ -3,6 +3,7 @@
 Fortune file of VNDB quotes. Automatically updated through GitHub Action.
 
 Rewritten in Lua, only tested on Lua5.4.
+Used libraries: `cjson`, `luafilesystem`, `luasec` and `luasocket`.
 
 ## Why
 
