@@ -5,8 +5,12 @@ on:
     - cron: "0 4 * * 0" # 4:00 UTC every Sunday
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,6 +18,8 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
