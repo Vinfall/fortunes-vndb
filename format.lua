@@ -11,12 +11,12 @@ local fortune_file = "vndb"
 -- Get query results
 local response_body, response_code = https.request("https://query.vndb.org/5c9a6037d875c238.json")
 if response_code ~= 200 then
-    error("Failed to get URL: " .. tostring(response_code))
+    error("Fail to get URL: " .. tostring(response_code))
 end
 
 local fortunes, err = cjson.decode(response_body)
 if err then
-    error("Failed to decode JSON: " .. tostring(err))
+    error("Fail to decode JSON: " .. tostring(err))
 end
 
 if not lfs.attributes(output_folder) then
@@ -25,6 +25,9 @@ end
 
 local json_file_path = output_folder .. json_file
 local json_file_handle = io.open(json_file_path, "w")
+if not json_file_handle then
+    error("Fail to open file: " .. err)
+end
 json_file_handle:write(cjson.encode(fortunes))
 json_file_handle:close()
 
@@ -40,6 +43,9 @@ end
 -- Write fortunes to fortune file
 local fortune_file_path = output_folder .. fortune_file
 local file_handle = io.open(fortune_file_path, "w")
+if not file_handle then
+    error("Fail to open file: " .. err)
+end
 for _, quote in ipairs(fortune_generator(fortunes)) do
     -- `%` is necessary for fortune file
     file_handle:write(quote .. "\n%\n")
