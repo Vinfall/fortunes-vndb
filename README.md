@@ -22,13 +22,15 @@ fortunes | cowsay
 > It may contain NSFW content or **spoilers** so use it at your own risk!
 
 1. Install `fortune-mod` or `fortunes` from your package manager
-2. Copy `vndb` AND `vndb.dat` to `/usr/share/fortunes` (or `/usr/share/games/fortunes`)
+2. Copy [`vndb`](https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb) AND [`vndb.dat`](https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb.dat) to `/usr/share/fortunes` (or `/usr/share/games/fortunes`)
 3. Get random VNDB quote via `fortune vndb`
 
 Example commands:
 
 ```sh
-$ sudo install -pm644 ./output/vndb* /usr/share/fortunes/
+$ wget https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb.dat
+
+$ sudo install -pm644 ./vndb* /usr/share/fortunes/
 
 $ fortune vndb
 I spent all of last year's Shiomi Festival participating in a self-sponsored Reading Festival at my apartment, actually.
@@ -56,8 +58,8 @@ or alternatively, run the script locally, edit the JSON, and make a fortune dat 
 
 - Fortunes-VNDB is released into Public Domain under [The Unlicense](https://unlicense.org).
 - [Query](https://query.vndb.org/5c9a6037d875c238) inspired by
-  - [All quotes on the DB (optional filter by VN)](https://query.vndb.org/6d95933cb5acd0d6)
-  - [Quotes and their games](https://query.vndb.org/6d55820399bae5ef)
+    - [All quotes on the DB (optional filter by VN)](https://query.vndb.org/6d95933cb5acd0d6)
+    - [Quotes and their games](https://query.vndb.org/6d55820399bae5ef)
 - [Data License](https://vndb.org/d17#4)
-  - All information on VNDB is made available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
-  - Any rights in individual contents of the database are licensed under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
+    - All information on VNDB is made available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
+    - Any rights in individual contents of the database are licensed under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
