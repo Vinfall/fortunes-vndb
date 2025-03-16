@@ -1,0 +1,65 @@
+[tools]
+"pipx:mypy" = "latest"
+"pipx:zizmor" = "latest"
+ruff = "latest"
+uv = "latest"
+actionlint = "latest"
+yamllint = "latest"
+stylua = "latest"
+
+[settings.pipx]
+uvx = true
+
+[tasks."build:py"]
+description = "build VNDB quotes with Python"
+run = "uv run format.py"
+
+[tasks."build:lua"]
+description = "build VNDB quotes with Lua"
+run = "lua format.lua"
+
+[tasks."lint:py"]
+description = "lint Python code"
+run = """
+#!/usr/bin/env bash
+ruff check --fix *.py
+mypy *.py
+"""
+
+[tasks."lint:lua"]
+description = "lint Lua code"
+run = """
+#!/usr/bin/env bash
+stylua *.lua
+"""
+
+[tasks."lint:ci"]
+description = "lint GitHub Actions"
+run = """
+#!/usr/bin/env bash
+yamllint --strict .github
+actionlint
+zizmor .github/workflows
+# zizmor --pedantic .github/workflows # offline audit using pedantic persona
+# zizmor --gh-token=$(gh auth token) .github/workflows # online audit
+"""
+
+[tasks.lint]
+description = "run linters and apply fixes"
+depends = ["lint:*"]
+
+[tasks.clean]
+description = "clean outputs"
+run = "rm output/vndb*"
+
+[tasks.install]
+description = "install vndb fortunes"
+run = "sudo install -pm644 ./output/vndb* /usr/share/fortunes/"
+
+[tasks.test]
+description = "get random VNDB quote"
+run = "fortune vndb"
+
+[tasks.uninstall]
+description = "remove vndb quotes from fortunes"
+run = "rm /usr/share/fortunes/vndb /usr/share/fortunes/vndb.dat"
