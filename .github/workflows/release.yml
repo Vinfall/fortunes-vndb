@@ -2,7 +2,7 @@ name: release
 
 on:
   schedule:
-    - cron: "0 4 * * 0" # 4:00 UTC every Sunday
+    - cron: 0 4 * * 0 # 4:00 UTC every Sunday
   workflow_dispatch:
 
 permissions: {}
@@ -34,11 +34,11 @@ jobs:
       - name: upload artifact to release
         uses: ncipollo/release-action@v1
         with:
-          allowUpdates: True
-          prerelease: False
-          tag: "continuous"
-          omitBody: True
-          omitBodyDuringUpdate: True
-          omitNameDuringUpdate: True
-          artifacts: "output/vndb*"
+          allowUpdates: true
+          prerelease: false
+          tag: continuous
+          omitBody: true
+          omitBodyDuringUpdate: true
+          omitNameDuringUpdate: true
+          artifacts: output/vndb*
           token: ${{ secrets.GITHUB_TOKEN }}
