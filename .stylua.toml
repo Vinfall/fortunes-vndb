@@ -1,0 +1,7 @@
+# syntax = "LuaJIT"
+line_endings = "Unix"
+indent_type = "Spaces"
+indent_width = 4
+quote_style = "AutoPreferDouble"
+collapse_simple_statement = "Never"
+space_after_function_names = "Never"
