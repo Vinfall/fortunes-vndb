@@ -10,7 +10,7 @@ permissions: {}
 jobs:
   build:
     permissions:
-      contents: write
+      contents: write # required to make release
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,15 +21,19 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - name: setup project with mise
+        id: setup-mise
+        uses: jdx/mise-action@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          install: true
+          cache: true
+          tool_versions: |
+            python ${{ matrix.python-version }}
 
-      - name: make fortune dat
+      - name: build vndb quotes
         run: |
           sudo apt install -y fortune-mod
-          python format.py
+          mise run build:py
 
       - name: upload artifact to release
         uses: ncipollo/release-action@v1
