@@ -1,6 +1,6 @@
-local https = require("ssl.https")   -- luasec
-local cjson = require("cjson.safe")  -- cjson
-local lfs = require("lfs")           -- luafilesystem
+local https = require("ssl.https") -- luasec
+local cjson = require("cjson.safe") -- cjson
+local lfs = require("lfs") -- luafilesystem
 local os = require("os")
 
 -- Output files
