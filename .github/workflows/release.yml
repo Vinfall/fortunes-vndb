@@ -15,15 +15,10 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
 
-      - name: set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
       - name: make fortune dat
         run: |
-          sudo apt install -y fortune-mod
-          python format.py
+          sudo apt install -y fortune-mod lua5.4
+          make run
 
       - name: upload artifact to release
         uses: ncipollo/release-action@v1
