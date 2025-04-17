@@ -18,7 +18,7 @@ with open(_OUTPUT_FOLDER + _JSON_FILE, "w", encoding="utf-8") as f:
 
 
 # Convert to fortune file format
-def fortune_generator(fortunes):
+def fortune_generator(fortunes):  # noqa: ANN001, ANN201
     for fortune in fortunes:
         yield f"{fortune['quote']}\n\t-- {fortune['source']}"
 
