@@ -50,7 +50,7 @@ depends = ["lint:*"]
 
 [tasks.clean]
 description = "clean outputs"
-run = "rm output/vndb*"
+run = "rm output/vndb* || true"
 
 [tasks.install]
 description = "install vndb fortunes"
