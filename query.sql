@@ -1,13 +1,14 @@
-SELECT q.quote,
+SELECT
+    q.quote,
     CASE
-        WHEN c.name IS NULL THEN CONCAT (v.title, ' (https://vndb.org/' || q.vid || ')')
-        ELSE CONCAT (
+        WHEN c.name IS null THEN concat(v.title, ' (https://vndb.org/' || q.vid || ')')
+        ELSE concat(
             c.name,
             ', ',
             v.title,
             ' (https://vndb.org/' || q.vid || ')'
         )
     END AS source
-FROM quotes q
-    JOIN vn v ON q.vid = v.id
-    LEFT JOIN chars c ON q.cid = c.id
+FROM quotes AS q
+JOIN vn AS v ON q.vid = v.id
+LEFT JOIN chars AS c ON q.cid = c.id

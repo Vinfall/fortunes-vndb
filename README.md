@@ -56,8 +56,8 @@ or alternatively, run the script locally, edit the JSON, and make a fortune dat 
 
 - Fortunes-VNDB is released into Public Domain under [The Unlicense](https://unlicense.org).
 - [Query](https://query.vndb.org/5c9a6037d875c238) inspired by
-  - [All quotes on the DB (optional filter by VN)](https://query.vndb.org/6d95933cb5acd0d6)
-  - [Quotes and their games](https://query.vndb.org/6d55820399bae5ef)
+    - [All quotes on the DB (optional filter by VN)](https://query.vndb.org/6d95933cb5acd0d6)
+    - [Quotes and their games](https://query.vndb.org/6d55820399bae5ef)
 - [Data License](https://vndb.org/d17#4)
-  - All information on VNDB is made available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
-  - Any rights in individual contents of the database are licensed under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
+    - All information on VNDB is made available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
+    - Any rights in individual contents of the database are licensed under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
