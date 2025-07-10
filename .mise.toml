@@ -1,6 +1,6 @@
 [tools]
 "pipx:mypy" = "latest"
-"pipx:zizmor" = "latest"
+zizmor = "latest"
 ruff = "latest"
 uv = "latest"
 actionlint = "latest"
