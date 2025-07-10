@@ -27,8 +27,7 @@ def fortune_generator(fortunes: list[dict]) -> Generator[str, None, None]:
 
 with open(_OUTPUT_FOLDER + _FORTUNE_FILE, "w") as file:
     # `%` is necessary for fortune file
-    for quote in fortune_generator(fortunes):
-        file.write(quote + "\n%\n")
+    file.writelines(quote + "\n%\n" for quote in fortune_generator(fortunes))
 
 # Generate .dat file
 os.system(f"strfile -c % {_OUTPUT_FOLDER + _FORTUNE_FILE}")  # noqa: S605, intended shell injection
