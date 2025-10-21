@@ -28,7 +28,7 @@ fortunes | cowsay
 Example commands:
 
 ```sh
-$ wget https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb.dat
+$ wget https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/{vndb,vndb.dat}
 
 $ sudo install -pm644 ./vndb* /usr/share/fortunes/
 
