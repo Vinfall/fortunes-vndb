@@ -11,4 +11,4 @@ SELECT
     END AS source
 FROM quotes AS q
 INNER JOIN vn AS v ON q.vid = v.id
-LEFT JOIN chars AS c ON q.cid = c.id
+LEFT JOIN chars_names AS c ON q.cid = c.id
