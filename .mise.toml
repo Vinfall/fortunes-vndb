@@ -1,8 +1,8 @@
 [tools]
-"pipx:mypy" = "latest"
 "pipx:zizmor" = "latest"
 ruff = "latest"
 uv = "latest"
+"pipx:ty" = "latest"
 actionlint = "latest"
 yamllint = "latest"
 stylua = "latest"
@@ -23,7 +23,7 @@ description = "lint Python code"
 run = """
 #!/usr/bin/env bash
 ruff check --fix *.py
-mypy *.py
+ty check
 """
 
 [tasks."lint:lua"]
