@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-
 import json
 import os
+import subprocess
 from collections.abc import Generator
+from typing import LiteralString
 from urllib.request import urlopen
 
 # Output files
@@ -30,4 +31,5 @@ with open(_OUTPUT_FOLDER + _FORTUNE_FILE, "w") as file:
     file.writelines(quote + "\n%\n" for quote in fortune_generator(fortunes))
 
 # Generate .dat file
-os.system(f"strfile -c % {_OUTPUT_FOLDER + _FORTUNE_FILE}")  # noqa: S605, intended shell injection
+cmd: list[LiteralString] = f"strfile -c % {_OUTPUT_FOLDER + _FORTUNE_FILE}".split()
+subprocess.run(cmd, check=True)  # noqa: S603, intended shell injection
