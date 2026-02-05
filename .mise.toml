@@ -1,11 +1,11 @@
 [tools]
-"pipx:zizmor" = "latest"
-ruff = "latest"
 uv = "latest"
-"ty" = "latest"
+ruff = "latest"
+ty = "latest"
+stylua = "latest"
 actionlint = "latest"
 yamllint = "latest"
-stylua = "latest"
+zizmor = "latest"
 
 [settings.pipx]
 uvx = true
