@@ -4,7 +4,7 @@ Fortune file of VNDB quotes. Automatically updated through GitHub Action.
 
 ## Why
 
-Quoted from Yorhel via [t1052.3](https://vndb.org/t1052.3):
+Quoted from Yorhel via [t1052.3][t1052.3]:
 
 > [!note]
 > It takes all the fun of the randomness away if you know all of them already. :-P
@@ -22,15 +22,17 @@ fortunes | cowsay
 > It may contain NSFW content or **spoilers** so use it at your own risk!
 
 1. Install `fortune-mod` or `fortunes` from your package manager
-2. Copy [`vndb`](https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb) AND [`vndb.dat`](https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb.dat) to `/usr/share/fortunes` (or `/usr/share/games/fortunes`)
+2. Copy [`vndb`][vndb] AND [`vndb.dat`][vndb.dat] to `/usr/share/fortunes` (or `/usr/share/games/fortunes`)
 3. Get random VNDB quote via `fortune vndb`
 
 Example commands:
 
 ```sh
-$ wget https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/{vndb,vndb.dat}
-
-$ sudo install -pm644 ./vndb* /usr/share/fortunes/
+# download fortunes
+wget https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb{,.dat}
+# install
+# replace "/usr/share/fortunes/" with "/usr/share/games/fortunes/" if needed
+sudo install -pm644 ./vndb* /usr/share/fortunes/
 
 $ fortune vndb
 I spent all of last year's Shiomi Festival participating in a self-sponsored Reading Festival at my apartment, actually.
@@ -39,7 +41,7 @@ I spent all of last year's Shiomi Festival participating in a self-sponsored Rea
 
 ## How
 
-Data is obtained through [VNDB Query](https://query.vndb.org/schema#vndb.quotes).
+Data is obtained through [VNDB Query][vndb-query].
 I have no idea about the meaning of `score` so omit it on purpose.
 
 PostgreSQL Query:
@@ -56,10 +58,21 @@ or alternatively, run the script locally, edit the JSON, and make a fortune dat 
 
 ## [License](LICENSE)
 
-- Fortunes-VNDB is released into Public Domain under [The Unlicense](https://unlicense.org).
-- [Query](https://query.vndb.org/5c9a6037d875c238) inspired by
-    - [All quotes on the DB (optional filter by VN)](https://query.vndb.org/6d95933cb5acd0d6)
-    - [Quotes and their games](https://query.vndb.org/6d55820399bae5ef)
-- [Data License](https://vndb.org/d17#4)
-    - All information on VNDB is made available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
-    - Any rights in individual contents of the database are licensed under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
+- Fortunes-VNDB is released into Public Domain under [The Unlicense][unlicense].
+- Query inspired by
+  - [All quotes on the DB (optional filter by VN)][query-1]
+  - [Quotes and their games][query-2]
+- [Data License][license]
+  - All information on VNDB is made available under the [Open Database License][ODBL].
+  - Any rights in individual contents of the database are licensed under the [Database Contents License][DBCL].
+
+[t1052.3]: https://vndb.org/t1052.3
+[vndb]: https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb
+[vndb.dat]: https://github.com/Vinfall/fortunes-vndb/releases/download/continuous/vndb.dat
+[vndb-query]: https://query.vndb.org/schema#vndb.quotes
+[unlicense]: https://unlicense.org
+[query-1]: https://query.vndb.org/6d95933cb5acd0d6
+[query-2]: https://query.vndb.org/6d55820399bae5ef
+[license]: https://vndb.org/d17#4
+[ODBL]: https://opendatacommons.org/licenses/odbl/1.0/
+[DBCL]: https://opendatacommons.org/licenses/dbcl/1.0/
