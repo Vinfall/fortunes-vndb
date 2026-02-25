@@ -3,9 +3,10 @@ uv = "latest"
 ruff = "latest"
 ty = "latest"
 stylua = "latest"
-actionlint = "latest"
-yamllint = "latest"
-zizmor = "latest"
+
+[settings]
+python.uv_venv_auto = "source"
+python.compile = false
 
 [settings.pipx]
 uvx = true
@@ -33,17 +34,6 @@ run = """
 stylua *.lua
 """
 
-[tasks."lint:ci"]
-description = "lint GitHub Actions"
-run = """
-#!/usr/bin/env bash
-yamllint --strict .github
-actionlint
-zizmor .github/workflows
-# zizmor --pedantic .github/workflows # offline audit using pedantic persona
-# zizmor --gh-token=$(gh auth token) .github/workflows # online audit
-"""
-
 [tasks.lint]
 description = "run linters and apply fixes"
 depends = ["lint:*"]
@@ -53,8 +43,11 @@ description = "clean outputs"
 run = "rm output/vndb* || true"
 
 [tasks.install]
+confirm = "fortunes program installed?"
 description = "install vndb fortunes"
-run = "sudo install -pm644 ./output/vndb* /usr/share/fortunes/"
+env.PREFIX = "/usr/share/fortunes"
+# env.PREFIX = "/usr/share/games/fortunes"
+run = "sudo install -pm644 ${MISE_PROJECT_ROOT}/output/vndb* $PREFIX/"
 
 [tasks.test]
 description = "get random VNDB quote"
@@ -62,4 +55,6 @@ run = "fortune vndb"
 
 [tasks.uninstall]
 description = "remove vndb quotes from fortunes"
-run = "rm /usr/share/fortunes/vndb /usr/share/fortunes/vndb.dat"
+env.PREFIX = "/usr/share/fortunes"
+# env.PREFIX = "/usr/share/games/fortunes"
+run = "sudo rm $PREFIX/vndb{,.dat}"
